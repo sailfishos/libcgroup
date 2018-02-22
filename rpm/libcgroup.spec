@@ -84,11 +84,6 @@ make %{?_smp_mflags}
 %install
 make DESTDIR=$RPM_BUILD_ROOT install
 
-# install config files
-install -d ${RPM_BUILD_ROOT}%{_sysconfdir}
-install -m 644 samples/cgconfig.conf $RPM_BUILD_ROOT/%{_sysconfdir}/cgconfig.conf
-install -m 644 samples/cgsnapshot_blacklist.conf $RPM_BUILD_ROOT/%{_sysconfdir}/cgsnapshot_blacklist.conf
-
 rm -f $RPM_BUILD_ROOT/%{_libdir}/*.la
 
 %post -p /sbin/ldconfig
