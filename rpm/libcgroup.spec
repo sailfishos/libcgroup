@@ -86,7 +86,6 @@ make DESTDIR=$RPM_BUILD_ROOT install
 rm -f $RPM_BUILD_ROOT/%{_libdir}/*.la
 
 # get rid of tool config and man files
-echo "DEBUGDEBUGDEBUG"
 rm -rf ${RPM_BUILD_ROOT}%{_sysconfdir}
 rm -rf ${RPM_BUILD_ROOT}%{_mandir}
 
