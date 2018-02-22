@@ -32,7 +32,7 @@ License: LGPLv2+
 Group: Development/Libraries
 URL: http://libcg.sourceforge.net/
 Source: %{name}-%{version}.tar.bz2
-
+Patch0: bootstrap_configure.patch
 #Patch0: fedora-config.patch
 #Patch1: libcgroup-0.37-chmod.patch
 #Patch2: libcgroup-0.40.rc1-coverity.patch
@@ -65,6 +65,7 @@ provide scripts to manage that configuration.
 
 %prep
 %setup  -q  -n %{name}-%{version}/%{name}
+%patch0 -p1
 #%patch0 -p1 -b .config-patch
 #%patch1 -p1 -b .chmod
 #%patch2 -p1 -b .coverity
@@ -77,7 +78,7 @@ provide scripts to manage that configuration.
 
 %build
 ./bootstrap.sh
-%configure --disable-daemon --enable-tools=no --enable-pam=no
+%configure --disable-daemon --disable-toolsno --disable-pam
 make %{?_smp_mflags}
 
 %install
