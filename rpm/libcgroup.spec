@@ -78,7 +78,7 @@ provide scripts to manage that configuration.
 
 %build
 ./bootstrap.sh
-%configure --disable-daemon --disable-toolsno --disable-pam
+%configure --disable-daemon --disable-tools --disable-pam
 make %{?_smp_mflags}
 
 %install
@@ -89,32 +89,19 @@ install -d ${RPM_BUILD_ROOT}%{_sysconfdir}
 install -m 644 samples/cgconfig.conf $RPM_BUILD_ROOT/%{_sysconfdir}/cgconfig.conf
 install -m 644 samples/cgsnapshot_blacklist.conf $RPM_BUILD_ROOT/%{_sysconfdir}/cgsnapshot_blacklist.conf
 
-# sanitize pam module, we need only pam_cgroup.so
-mv -f $RPM_BUILD_ROOT%{_libdir}/security/pam_cgroup.so.*.*.* $RPM_BUILD_ROOT%{_libdir}/security/pam_cgroup.so
-rm -f $RPM_BUILD_ROOT%{_libdir}/security/pam_cgroup.la $RPM_BUILD_ROOT/%{_libdir}/security/pam_cgroup.so.*
-
 rm -f $RPM_BUILD_ROOT/%{_libdir}/*.la
-
-rm -f $RPM_BUILD_ROOT/%{_mandir}/man5/cgred.conf.5*
-rm -f $RPM_BUILD_ROOT/%{_mandir}/man5/cgrules.conf.5*
-rm -f $RPM_BUILD_ROOT/%{_mandir}/man8/cgrulesengd.8*
-
-%pre
-getent group cgred >/dev/null || groupadd -r cgred
 
 %post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig
 
 %files
-%{!?_licensedir:%global license %%doc}
-%license COPYING
+%doc COPYING
 %doc README
 %{_libdir}/libcgroup.so.*
 
 %files devel
-%{!?_licensedir:%global license %%doc}
-%license COPYING
+%doc COPYING
 %doc README
 %{_includedir}/libcgroup.h
 %{_includedir}/libcgroup/*.h
