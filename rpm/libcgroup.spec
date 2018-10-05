@@ -33,17 +33,6 @@ Group: Development/Libraries
 URL: http://libcg.sourceforge.net/
 Source: %{name}-%{version}.tar.bz2
 Patch0: bootstrap_configure.patch
-#Patch0: fedora-config.patch
-#Patch1: libcgroup-0.37-chmod.patch
-#Patch2: libcgroup-0.40.rc1-coverity.patch
-#Patch3: libcgroup-0.40.rc1-fread.patch
-#Patch4: libcgroup-0.40.rc1-templates-fix.patch
-#Patch5: libcgroup-0.41-lex.patch
-#Patch6: libcgroup-0.41-api.c-support-for-setting-multiline-values-in-contro.patch
-## resolves #1348874
-#Patch7: libcgroup-0.41-api.c-fix-order-of-memory-subsystem-parameters.patch
-## resolves #1384504
-#Patch8: libcgroup-0.41-api.c-preserve-dirty-flag.patch
 
 BuildRequires: automake autoconf libtool
 BuildRequires: gcc, gcc-c++
@@ -66,15 +55,6 @@ provide scripts to manage that configuration.
 %prep
 %setup  -q  -n %{name}-%{version}/%{name}
 %patch0 -p1
-#%patch0 -p1 -b .config-patch
-#%patch1 -p1 -b .chmod
-#%patch2 -p1 -b .coverity
-#%patch3 -p1 -b .fread
-#%patch4 -p1 -b .templates-fix
-#%patch5 -p2 -b .lex
-#%patch6 -p1
-#%patch7 -p1
-#%patch8 -p1
 
 %build
 ./bootstrap.sh
