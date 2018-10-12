@@ -45,7 +45,7 @@ administrate and monitor control groups and the associated controllers.
 %package devel
 Summary: Development libraries to develop applications that utilize control groups
 Group: Development/Libraries
-Requires: %{name}%{?_isa} = %{version}-%{release}
+Requires: %{name} = %{version}-%{release}
 
 %description devel
 It provides API to create/delete and modify cgroup nodes. It will also in the
