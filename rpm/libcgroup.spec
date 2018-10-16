@@ -34,9 +34,14 @@ URL: http://libcg.sourceforge.net/
 Source: %{name}-%{version}.tar.bz2
 Patch0: bootstrap_configure.patch
 
-BuildRequires: automake autoconf libtool
-BuildRequires: gcc, gcc-c++
-BuildRequires: byacc, coreutils, flex
+BuildRequires: automake
+BuildRequires: autoconf
+BuildRequires: libtool
+BuildRequires: gcc
+BuildRequires: gcc-c++
+BuildRequires: byacc
+BuildRequires: coreutils
+BuildRequires: flex
 
 %description
 Control groups infrastructure. The library helps manipulate, control,
