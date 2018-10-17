@@ -1,0 +1,13 @@
+diff --git a/bootstrap.sh b/bootstrap.sh
+index 08a054f..434412b 100755
+--- a/bootstrap.sh
++++ b/bootstrap.sh
+@@ -14,6 +14,6 @@ autoconf
+ autoheader
+ automake --foreign --add-missing --copy
+ 
+-CFLAGS="$CFLAGS -g -O0" ./configure --sysconfdir=/etc --localstatedir=/var
++#CFLAGS="$CFLAGS -g -O0" ./configure --sysconfdir=/etc --localstatedir=/var
+ 
+-make clean
++#make clean
