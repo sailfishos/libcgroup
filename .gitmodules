@@ -1,3 +1,3 @@
 [submodule "libcgroup"]
 	path = libcgroup
-	url = https://git.sailfishos.org/mirror/libcgroup.git
+	url = https://github.com/sailfishos-mirror/libcgroup.git
